@@ -8,7 +8,7 @@
             var videoElement = document.querySelector("video");
 
             var constraints = navigator.mediaDevices.getSupportedConstraints();
-            document.querySelector("p").addEventListener("click", event => {
+            document.querySelector("#openCamera").addEventListener("click", event => {
                 navigator.mediaDevices.getUserMedia({ audio: false, video: true })
                 .then( function(mediaStream) {
                     videoElement.srcObject = mediaStream; 
@@ -23,6 +23,6 @@
 </head>
 <body>
 <video></video>
-<p>open camera</p>
+<button id="openCamera">open camera</button>
 </body>
 </html>
