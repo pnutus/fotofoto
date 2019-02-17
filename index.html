@@ -8,22 +8,21 @@
             var videoElement = document.querySelector("video");
 
             var constraints = navigator.mediaDevices.getSupportedConstraints();
-            document.querySelector("p").innerText = JSON.stringify(constraints); 
-
-            navigator.mediaDevices.getUserMedia({ audio: false, video: true })
-            .then( function(mediaStream) {
-                videoElement.srcObject = mediaStream; 
-                videoElement.play();
-
-            })
-            .catch( function(error) {
-                console.log("Could not access video stream.")
+            document.querySelector("p").addEventListener("click", event => {
+                navigator.mediaDevices.getUserMedia({ audio: false, video: true })
+                .then( function(mediaStream) {
+                    videoElement.srcObject = mediaStream; 
+                    videoElement.play();
+                })
+                .catch( function(error) {
+                    console.log("Could not access video stream. " + error);
+                });
             });
         }
     </script>
 </head>
 <body>
 <video></video>
-<p>derp</p>
+<p>open camera</p>
 </body>
 </html>
